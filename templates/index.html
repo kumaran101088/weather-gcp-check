@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <h1>Get to know the weather</h1>
+    <br><br>
+    {% if temperature and climate: %}
+    <h1>{{ temperature }} and {{ climate }}</h1>
+    {% endif %}
+    <form action="{{url_for('show_weather')}}" method="post">
+        <label for="location">Choose a city</label>
+        <select name="location" id="location">
+            <option value="choose..." selected>Choose...</option>
+            <option value="chennai">Chennai</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="hyderabad">Hyderabad</option>
+        </select>
+        <input type="submit" value="Get Weather">
+    </form>
+</body>
+</html>
